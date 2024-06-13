@@ -1,1 +1,1 @@
-# cappuccino_catalog
+# Сappuccino catalog
