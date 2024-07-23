@@ -11,13 +11,17 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableIntState
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ru.kanogor.cappuccinocatalog.presentation.ui.theme.ToolbarTextColor
 
+const val TIME_PATTERN_HOUR_MIN = "HH:mm:ss"
+
 @Composable
-fun InfoToolbar() {
+fun InfoToolbar(temp: MutableIntState, time: MutableState<String>) {
     val endTextModifier = Modifier.padding(horizontal = 24.dp, vertical = 16.dp)
     Row(
         modifier = Modifier
@@ -34,14 +38,14 @@ fun InfoToolbar() {
             modifier = Modifier.padding(horizontal = 25.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = "19.34", modifier = endTextModifier, color = ToolbarTextColor)
+            Text(text = time.value, modifier = endTextModifier, color = ToolbarTextColor)
             VerticalDivider(
                 color = ToolbarTextColor,
                 modifier = Modifier
                     .fillMaxHeight()
                     .width(1.dp)
             )
-            Text(text = "75°", modifier = endTextModifier, color = ToolbarTextColor)
+            Text(text = "${temp.intValue}°", modifier = endTextModifier, color = ToolbarTextColor)
             VerticalDivider(
                 color = ToolbarTextColor,
                 modifier = Modifier
