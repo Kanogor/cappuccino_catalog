@@ -31,7 +31,7 @@ import ru.kanogor.cappuccinocatalog.presentation.singlecappuccino.SingleCapp
 import ru.kanogor.cappuccinocatalog.presentation.singlecappuccino.SingleCappRoute
 import ru.kanogor.cappuccinocatalog.presentation.toolbar.InfoToolbar
 import ru.kanogor.cappuccinocatalog.presentation.ui.theme.CappuccinoCatalogTheme
-import ru.kanogor.cappuccinocatalog.presentation.ui.theme.ToolbarTextColor
+import ru.kanogor.cappuccinocatalog.presentation.ui.theme.ToolbarBtnColor
 import ru.kanogor.cappuccinocatalog.utils.getCurrentTime
 import ru.kanogor.cappuccinocatalog.utils.getRandomTemp
 
@@ -65,7 +65,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         InfoToolbar(temp = temp, time = time)
                         HorizontalDivider(
-                            color = ToolbarTextColor,
+                            color = ToolbarBtnColor,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .width(1.dp)

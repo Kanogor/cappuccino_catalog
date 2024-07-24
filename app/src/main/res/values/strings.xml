@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Cappuccino catalog</string>
+    <string name="toolbar_btn">RUNERO Touch</string>
+    <string name="temp">%1$s°</string>
+    <string name="rus">RU</string>
+    <string name="flag">flag</string>
+    <string name="icon">icon</string>
 </resources>
