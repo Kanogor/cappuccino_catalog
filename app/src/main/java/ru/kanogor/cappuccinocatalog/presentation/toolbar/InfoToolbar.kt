@@ -21,10 +21,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import ru.kanogor.cappuccinocatalog.R
 import ru.kanogor.cappuccinocatalog.presentation.ui.theme.ToolbarBtnColor
-import ru.kanogor.cappuccinocatalog.presentation.ui.theme.ToolbarTextColor
 
 const val TIME_PATTERN_HOUR_MIN = "HH:mm"
 
