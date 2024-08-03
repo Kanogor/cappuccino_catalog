@@ -85,4 +85,7 @@ dependencies {
     //Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+
+    // Constraint layout
+    implementation(libs.androidx.constraintlayout.compose)
 }

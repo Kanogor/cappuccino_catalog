@@ -13,10 +13,12 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -25,6 +27,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import ru.kanogor.cappuccinocatalog.presentation.homepage.Homepage
 import ru.kanogor.cappuccinocatalog.presentation.homepage.HomepageRoute
 import ru.kanogor.cappuccinocatalog.presentation.singlecappuccino.SingleCapp
@@ -43,15 +48,25 @@ class MainActivity : ComponentActivity() {
         val viewModel: MainViewModel by viewModels()
 
         setContent {
+            val coroutineScope = rememberCoroutineScope()
             val time = remember {
                 mutableStateOf(getCurrentTime())
             }
             val temp = remember {
                 mutableIntStateOf(getRandomTemp())
             }
-            viewModel.whatsTimeIsIt()
-            temp.intValue = viewModel.temp.collectAsState().value
-            time.value = viewModel.time.collectAsState().value
+            LaunchedEffect(key1 = Unit) { // убрать во вьюмодель, навести красоту
+                coroutineScope.launch(Dispatchers.Main) {
+                    while (true) {
+                        delay(1000)
+                        time.value = getCurrentTime()
+                        temp.intValue = getRandomTemp()
+                    }
+                }
+            }
+//            viewModel.whatsTimeIsIt()
+//            temp.intValue = viewModel.temp.collectAsState().value
+//            time.value = viewModel.time.collectAsState().value
             val navController = rememberNavController()
             CappuccinoCatalogTheme {
                 Surface(
