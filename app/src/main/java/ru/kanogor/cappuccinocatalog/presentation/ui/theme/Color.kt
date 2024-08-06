@@ -1,6 +1,5 @@
 package ru.kanogor.cappuccinocatalog.presentation.ui.theme
 
-import android.widget.Switch
 import androidx.compose.ui.graphics.Color
 
 val Purple80 = Color(0xFFD0BCFF)
@@ -19,3 +18,10 @@ val SwitchGradientStart = Color(0xFFEE4E2B)
 val SwitchGradientEnd = Color(0xFFFF9900)
 val SaveBtnText = Color(0xFFFFFAF7)
 val SaveBtnContainer = Color(0xFFF77416)
+val CappCardColorStart = Color(0xFF19110E)
+val CappCardColorEnd = Color(0xFF100909)
+val CappCardBotRowStart = Color(0xFF1D1412)
+val CappCardBotRowCenter = Color(0xFF160E0C)
+val CappCardBotRowEnd = Color(0xFF231917)
+val CappCardBotVolume = Color(0xFF514541)
+val CappCardBotCost =  Color(0xFFF77416)

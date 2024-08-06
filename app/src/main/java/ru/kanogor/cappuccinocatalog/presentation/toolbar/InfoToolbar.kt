@@ -28,7 +28,6 @@ const val TIME_PATTERN_HOUR_MIN = "HH:mm"
 
 @Composable
 fun InfoToolbar(temp: MutableIntState, time: MutableState<String>) {
-    val endTextModifier = Modifier.padding(horizontal = 24.dp, vertical = 16.dp)
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -57,19 +56,30 @@ fun InfoToolbar(temp: MutableIntState, time: MutableState<String>) {
             Text(
                 text = time.value,
                 style = MaterialTheme.typography.titleLarge,
-                modifier = endTextModifier
             )
             VerticalDivider(
                 color = ToolbarBtnColor,
                 modifier = Modifier
                     .fillMaxHeight()
+                    .padding(start = 24.dp)
                     .width(1.dp)
             )
-            Text(
-                text = stringResource(R.string.temp, temp.intValue),
-                style = MaterialTheme.typography.titleLarge,
-                modifier = endTextModifier,
-            )
+            Row(
+                modifier = Modifier.width(83.dp),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(R.string.temp, temp.intValue),
+                    style = MaterialTheme.typography.titleLarge,
+                )
+                Image(
+                    painter = painterResource(id = R.drawable.ic_temp),
+                    modifier = Modifier
+                        .size(11.dp),
+                    contentDescription = "ic temp"
+                )
+            }
             VerticalDivider(
                 color = ToolbarBtnColor,
                 modifier = Modifier
